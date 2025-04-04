@@ -3,5 +3,11 @@ www.detec.site {
 }
 
 detec.site {
-    reverse_proxy detectBack:5000
+    root * /usr/share/caddy
+    file_server
+
+    handle /api/* {
+        reverse_proxy localhost:5000
+    }
+
 }
