@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingIndicator.classList.remove('hidden');
         errorMessage.classList.add('hidden');
         const probability = Math.random();
+        displayResult(probability);
         // fetch('/predict', {
         //     method: 'GET',
         //     headers: {
