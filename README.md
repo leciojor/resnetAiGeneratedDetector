@@ -14,3 +14,6 @@
 
 ### Backend
 * Flask server with model hosted and enpoints for model prediction
+
+
+![alt text](image.png)
