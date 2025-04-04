@@ -1,0 +1,4 @@
+detec.site {
+    reverse_proxy detectBack:5000
+}
+    
