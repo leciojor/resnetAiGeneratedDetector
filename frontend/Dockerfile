@@ -1,6 +1,6 @@
 FROM caddy:alpine
 
-COPY . /usr/share/caddy
+COPY ./src /usr/share/caddy
 
 # Copy your Caddyfile config
-COPY Caddyfile /etc/caddy/Caddyfile
+COPY ./Caddyfile /etc/caddy/Caddyfile

@@ -10,6 +10,7 @@
 
 ### Client
 * Simple HTML, CSS, JS client hosted in AWS instance with docker
+* Hosted at https://www.detect.site
 
 ### Backend
 * Flask server with model hosted and enpoints for model prediction
