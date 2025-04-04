@@ -56,6 +56,8 @@ jobs:
             fi            
 
             docker run -d \
-            --name detectclient-container \
-            -p 80:80 -p 443:443 \
-            oracio/detectclient:latest
+              --name detectclient-container \
+              -p 80:80 -p 443:443 \
+              -v caddy_data:/data \
+              -v caddy_config:/config \
+              oracio/detectclient:latest
