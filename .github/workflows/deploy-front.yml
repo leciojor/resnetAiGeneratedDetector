@@ -61,3 +61,6 @@ jobs:
               -v caddy_data:/data \
               -v caddy_config:/config \
               oracio/detectclient:latest
+
+            docker image prune -f
+
