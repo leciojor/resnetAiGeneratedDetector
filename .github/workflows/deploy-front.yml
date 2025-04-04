@@ -51,7 +51,7 @@ jobs:
             docker pull oracio/detectclient:latest
 
             if [ "$(docker ps -aq -f name=detectclient-container)" ]; then
-              docker stop detectClientgen-container
+              docker stop detectclient-container
               docker rm detectclient-container
             fi            
 
