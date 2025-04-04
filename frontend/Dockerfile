@@ -1,5 +1,5 @@
 FROM caddy:alpine
 
-COPY ./src /usr/share/caddy
+COPY ./frontend/src /usr/share/caddy
 
-COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY ./frontend/Caddyfile /etc/caddy/Caddyfile
