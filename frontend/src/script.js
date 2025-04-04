@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         analyzeControls.classList.add('hidden');
         loadingIndicator.classList.remove('hidden');
         errorMessage.classList.add('hidden');
-        const probability = 
+        const probability = Math.random();
         // fetch('/predict', {
         //     method: 'GET',
         //     headers: {
