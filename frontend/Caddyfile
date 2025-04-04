@@ -1,4 +1,7 @@
+www.detec.site {
+    redir https://detec.site{uri}
+}
+
 detec.site {
     reverse_proxy detectBack:5000
 }
-    
