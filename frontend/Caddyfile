@@ -1,8 +1,4 @@
-www.detec.site {
-    redir https://detec.site{uri}
-}
-
-detec.site {
+detec.site, www.detec.site {
     root * /usr/share/caddy
     file_server
 
@@ -10,4 +6,6 @@ detec.site {
         reverse_proxy localhost:5000
     }
 
+    @wwwHost host www.detec.site
+    redir @wwwHost https://detec.site{uri}
 }
