@@ -58,8 +58,8 @@ jobs:
             docker run -d \
               --name detectclient-container \
               -p 80:80 -p 443:443 \
-              -v /home/ec2-user/caddy_data_backup:/data \
-              -v /home/ec2-user/caddy_config_backup:/config \
+              -v caddy_data:/data \
+              -v caddy_config:/config \
               oracio/detectclient:latest
 
             docker image prune -f
