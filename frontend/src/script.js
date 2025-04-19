@@ -94,9 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         fetch('/api/predict', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
             body: formData,
         })
         .then(response => {
