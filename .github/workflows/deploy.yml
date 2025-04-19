@@ -28,9 +28,9 @@ jobs:
           docker tag detectclient oracio/detectclient:latest
           docker push oracio/detectclient:latest
 
-          docker build -t detectServer -f ./backend/Dockerfile .
-          docker tag detectServer oracio/detectServer:latest
-          docker push oracio/detectServer:latest
+          docker build -t detectserver -f ./backend/Dockerfile .
+          docker tag detectserver oracio/detectserver:latest
+          docker push oracio/detectserver:latest
 
 
       - name: Add runner IP to AWS Security Group
