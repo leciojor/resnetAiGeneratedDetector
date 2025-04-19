@@ -4,3 +4,4 @@ pillow
 Flask
 flask-cors
 torchvision
+requests
