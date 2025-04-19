@@ -28,6 +28,10 @@ jobs:
           docker tag detectclient oracio/detectclient:latest
           docker push oracio/detectclient:latest
 
+          docker build -t detectServer -f ./backend/Dockerfile .
+          docker tag detectServer oracio/detectServer:latest
+          docker push oracio/detectServer:latest
+
 
       - name: Add runner IP to AWS Security Group
         uses: sohelamin/aws-security-group-add-ip-action@master
@@ -55,12 +59,24 @@ jobs:
               docker rm detectclient-container
             fi            
 
+            if [ "$(docker ps -aq -f name=detectserver-container)" ]; then
+              docker stop detectserver-container
+              docker rm detectserver-container
+            fi            
+
+
             docker run -d \
               --name detectclient-container \
               -p 80:80 -p 443:443 \
               -v caddy_data:/data \
               -v caddy_config:/config \
               oracio/detectclient:latest
+
+            docker run -d \
+              --name detectserver-container \
+              -p 5000:5000 \
+              oracio/detectserver:latest
+
 
             docker image prune -f
 

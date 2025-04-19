@@ -1,0 +1,6 @@
+python-dotenv
+torch
+pillow
+Flask
+flask-cors
+torchvision

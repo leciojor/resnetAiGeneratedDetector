@@ -6,7 +6,7 @@
 
 ### Model Architecture/Specs
 
-* Will be available soon
+* Can be found at /model-logic
 
 ### Client
 * Simple HTML, CSS, JS client hosted in AWS instance with docker

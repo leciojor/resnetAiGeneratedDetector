@@ -82,35 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
         analyzeControls.classList.add('hidden');
         loadingIndicator.classList.remove('hidden');
         errorMessage.classList.add('hidden');
-        
-        const analysisTime = Math.random() * 2000 + 1000;
-        
-        setTimeout(() => {
-            const probability = Math.random();
-            displayResult(probability);
-            loadingIndicator.classList.add('hidden');
-        }, analysisTime);
-        
-        // Uncomment for actual API implementation
-        // fetch('/predict', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ image: selectedFile }),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     const probability = data.probability;
+                
+        // setTimeout(() => {
+        //     const probability = Math.random();
         //     displayResult(probability);
-        // })
-        // .catch(error => {
-        //     showError('Error analyzing image. Please try again.');
-        //     analyzeControls.classList.remove('hidden');
-        // })
-        // .finally(() => {
         //     loadingIndicator.classList.add('hidden');
-        // });
+        // }, analysisTime);
+
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+
+        fetch('http://18.205.114.19:5000/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const probability = data.probability;
+            displayResult(probability);
+        })
+        .catch(error => {
+            showError('Error analyzing image. Please try again.');
+            analyzeControls.classList.remove('hidden');
+        })
+        .finally(() => {
+            loadingIndicator.classList.add('hidden');
+        });
     }
 
     function displayResult(probability) {
