@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('image', selectedFile);
 
-        fetch('http://18.205.114.19:5000/api/predict', {
+        fetch('/api/predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
