@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('api/predict', methods=['post'])
+@app.route('/api/predict', methods=['post'])
 def run_method():
     if 'image' not in request.files:
         return jsonify({"error": "No image part in the request"}), 400
