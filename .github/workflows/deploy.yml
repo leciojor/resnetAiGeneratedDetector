@@ -53,6 +53,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           script: |
             docker pull oracio/detectclient:latest
+            docker pull oracio/detectserver:latest
 
             if [ "$(docker ps -aq -f name=detectclient-container)" ]; then
               docker stop detectclient-container
