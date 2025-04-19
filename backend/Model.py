@@ -5,7 +5,8 @@ from torchvision import transforms
 import io
 from dotenv import load_dotenv
 import os
-import requests
+import gdown
+
 load_dotenv()
 
 class BottleneckBlock(nn.Module):
@@ -103,14 +104,8 @@ class ResNet152(nn.Module):
 def download_model(model_file):
     model_url = os.environ["model_url"]
     if not os.path.exists(model_file):
-        response = requests.get(model_url, stream=True)
-        if response.status_code != 200:
-            raise Exception("Failed to download model file.")
-        
-        with open(model_file, 'wb') as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                if chunk:
-                    f.write(chunk)
+        gdown.download(model_url, model_file, quiet=False)
+
 
 
 def predict(image):
@@ -131,7 +126,7 @@ def predict(image):
     model.eval()
 
     with torch.no_grad():
-        return model(image.to(device)).item()
+        return torch.sigmoid(model(image.to(device))).item()
 
 
 
