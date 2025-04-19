@@ -178,3 +178,4 @@ cython_debug/
 
 #just so binary is not recopied many times when pushign
 *.pkl
+*.ipynb
