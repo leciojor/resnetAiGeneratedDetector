@@ -13,7 +13,7 @@
 * Hosted at https://www.detec.site
 
 ### Backend
-* Flask server with model hosted and enpoints for model prediction
+* Flask server with model hosted and enpoints for model prediction 90
 
 
 ![alt text](mycat.png)
